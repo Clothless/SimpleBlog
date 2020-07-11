@@ -6,5 +6,6 @@
 <a href="{% url 'article' post.pk %}">{{post.title}}</a>
 {{post.auther}}
 {{post.body}}
-
+<a href="{% url 'edit' post.pk %}">(Edit)</a>
+<br>
 {% endfor %}
