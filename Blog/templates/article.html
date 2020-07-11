@@ -1,2 +1,4 @@
 <h1>{{post.title}}</h1>
-{{post.auther}}
+{{post.auther}}<br>
+{{post.body}}<br><br>
+<a href="{% url 'edit' post.pk %}">(Edit)</a>
