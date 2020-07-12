@@ -3,11 +3,27 @@
 Adding Blog Post
 {% endblock %}
 {% block content %}
-<h1>Hello people!</h1>
-<form method="POST">
-	{% csrf_token %}
-	{{form.as_p}}
+
+{% if user.is_authenticated %}
+	<h1>Hello people!</h1>
 	
-<button class="btn btn-info">Post</button>
-</form>
+	<form method="POST">
+		<div class="container">
+		{% csrf_token %}
+		<h5>{{form.title.label}}</h5>
+		{{form.title}}
+	<h5>{{form.auther.label}}</h5>
+	{{form.auther}}
+	<h5>{{form.body.label}}</h5>
+	{{form.body}}
+	<br>
+	<button class="btn btn-info">Post</button>
+	</div>
+	</form>
+
+{% else %}
+<h1>You are not allowed to be Here!</h1>
+<h3>Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a></h3>
+{% endif %}
+
 {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import post
 from django.urls import reverse_lazy
+from .forms import postform
 
 
 
@@ -19,8 +20,8 @@ class ArticleView(DetailView):
 
 class AddPost(CreateView):
 	model = post
+	form_class = postform
 	template_name = 'add.html'
-	fields = '__all__'
 
 
 class EditPost(UpdateView):
