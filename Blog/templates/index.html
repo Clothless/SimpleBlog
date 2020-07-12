@@ -1,7 +1,7 @@
+{% extends 'base.html' %}
 <h1>POST</h1>
 
-
-
+{% block content %}
 {% for post in object_list %}
 <a href="{% url 'article' post.pk %}">{{post.title}}</a>
 {{post.auther}}
@@ -10,3 +10,5 @@
 <a href="{% url 'delete' post.pk %}">Delete</a>
 <br>
 {% endfor %}
+
+{% endblock %}
